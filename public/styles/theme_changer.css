@@ -1,0 +1,25 @@
+:root{
+    --col1 : #f4f8fc; 
+    --col2 : #393b41; 
+}
+.theme_changer{
+    position: fixed;
+    height: 50px;
+    width : 50px;
+    bottom: 30px;
+    right : 20px;
+    cursor: pointer;
+    background-color: var(--col2);
+    border-radius: 50%;
+    border: 1px solid var(--col1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.theme_changer:hover{
+    box-shadow: 0 0 7px 2px cyan;
+}
+.music_theme{
+    bottom: 16.5vh;
+}

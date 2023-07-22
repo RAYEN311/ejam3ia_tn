@@ -1,0 +1,462 @@
+:root {
+    --box_shad : 0px 0px 5px 2px rgba(0, 255, 255, 0.768);
+    --color_I : rgb(0, 0, 0) ; 
+    --bgColor_II :  rgb(0, 2, 16) ;
+    --bgColor_I : whitesmoke ;
+    --color_II : white  ; 
+    --color_III : white ;
+    --bgcolorIII: rgb(0, 2, 16) ;
+    --backdrop : rgba(0, 0, 0) ;
+    --play-box-bg:rgb(234, 234, 234);
+    --play-box-height: 30vh ;
+    --play-box-width: 30vh ;
+}
+html {
+    background-color: var(--bgColor_I);
+    overflow-x: hidden;
+    --webkit-scrollbar-width: 5px;
+}
+body{
+    margin: 0;
+}
+* {
+    color: var(--color_I);
+    font-family: sans-serif;
+}
+button,h1,h2,h3,h4,h5,h6,a,img,.next,.last ,.controller {
+    -webkit-user-select: none;
+}
+.body_content {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right:0;
+    width:calc( 100vw - 8vh );
+}
+header{
+    height: 9vh;
+    width: calc(100vw - 8vh);
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--bgColor_I);
+}
+.body_content header {
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    border-bottom: 1px solid var(--color_I);
+    background-color: var(--bgColor_I);
+}
+.body_content header::after {
+content: "";
+height: 1px;
+background-color: var(--color_I);
+position: relative;
+top:0%;
+right: 0%;
+width: 240%;
+}
+.top_body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.top_body p{
+    font-weight:700;
+    letter-spacing: 0.7px;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 50px;
+}
+h1{
+    padding-right: 20PX;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: sans-serif;
+    position: absolute;
+}
+.team_choosed{
+    height: 7vh;
+    width: 7vh;
+    object-fit:contain;
+    margin: 1vh;
+    margin-left: 20px;
+}
+.added_bar{
+background-color: var(--bgColor_I);
+box-shadow: 0px 0px 5px 1px var(--bgcolorIII);
+border-bottom: 1px solid rgb(123, 123, 123);
+position: fixed;
+top: 0vh;
+right: 0;
+height:16vh;
+width: calc(100vw - 8vh);
+}
+.side_bar{
+width: 8vh;
+height: 100vh;
+position: fixed;
+background-color: black;
+border-right: 1px solid rgb(131, 131, 131);
+z-index: 2;
+display: flex;
+justify-content: center;
+}
+.side_bar a{
+    margin: 2vh 0 2vh 0;
+    height: 2.6vh;
+    cursor: pointer;
+    padding: 1.2vh;
+    border-radius: 30%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6vh;
+}
+.side_bar a:hover{
+    box-shadow: 0px 0px 5px 2px rgba(0, 255, 255, 0.768);
+}
+.lowest_bar{
+    bottom: 0;
+    width: 100vw;
+    height: 14vh;
+    position: fixed;
+    background-color: whitesmoke;
+    /* background: linear-gradient(180deg,var(--bgColor_II), var(--bgColor_I) ); */
+    background: linear-gradient(45deg , rgb(2, 17, 59) , rgb(7, 7, 51));
+    border-top: 1px solid black;
+    z-index: 3;
+    transform: translateY(14vh);
+    transition: transform 0.5s;
+    
+}
+.lowest_bar .img_track{
+    position:absolute;
+    top: 22.5%;
+    left: 3vh;
+    height: 8vh;
+    width: 8vh;
+    border: 1px solid white;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.lowest_bar .slider_container{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+.lowest_bar .slider_container .seek_slider{
+width: 54vw;
+height: 3px;
+cursor: pointer;
+}
+.lowest_bar .slider_container div {
+    margin: 8px;
+    color: white!important;
+}
+.lowest_bar .border_top{
+    position: absolute;
+    top:- 0.5vh;
+    height: 0.5vh;
+    width: 100vw;
+}
+.controller{
+    position: absolute;
+    top: 8.5vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.last , .next {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid var(--color_II);
+}
+.start_stop{
+    background-color: white;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    border: 1px solid var(--color_II);
+}
+.start_stop:hover,.next:hover,.last:hover{
+    scale: 1.1;
+}
+
+.last , .start_stop , .next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.start_stop svg{
+    height: 4vh;
+}
+.start_stop #play_butt{
+    
+    margin-left: 0.5vh;
+ }
+.last svg , .next svg{
+    height: 3vh;
+}
+.main_content{
+    position: absolute;
+    top: 22vh;
+    left: 16vh;
+    width: calc(100vw - 20vh);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: -1;
+    padding-bottom: 15vh;
+    transition: top 0.5s linear;
+}
+.main_content .playbox{
+    /* background:  linear-gradient(0deg , rgb(0, 0, 0) , red, rgb(252, 236, 0) ) ; */
+    background:  var(--play-box-bg) ;
+    box-shadow: 0px 0px 7px 3px black;
+    border: 1px solid var(--color_I);
+    height: var(--play-box-height);
+    width: var(--play-box-width);
+    padding: 4px;
+    border-radius: 30px;
+    margin: 15px 5px 15px 10px;
+    cursor: pointer;
+    transition: scale 0.2s;
+}
+.main_content .playbox:hover{
+background: var(--backdrop);
+box-shadow: var(--box_shad);
+scale: 1.05;
+}
+
+/* .playbox .over_buttons_layers{
+    position:absolute;
+    height: calc(var(--play-box-height) /1.05) ;
+    width: calc(var(--play-box-width) / 2);
+}
+
+
+.playbox .over_buttons_layers .over_button{
+    position: relative;
+    height: 8vh;
+    width: 8vh;
+    top: 49.5%;
+    left:19.8%;
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+    z-index: 1000;
+
+} */
+
+
+.playbox .back{
+    height: 60%;
+    width: 100%;
+    border-radius: 25px 25px 5px 5px;
+    filter: brightness(45%);
+}
+.playbox:hover .back{
+    filter: brightness(60%);
+}
+.playbox .play_bu{
+    background-color: var(--play-box-bg);
+    height: calc(var(--play-box-height) / 3.5);
+    width: calc(var(--play-box-height) / 3.5);
+    border-radius: 50%;
+    position: relative;
+    bottom: calc(var(--play-box-height) / 7);
+    left: calc(var(--play-box-width) / 12) ; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: scale 0.5s;
+    border: 1px solid rgb(0, 126, 157);
+    z-index: 10;
+}
+.playbox .play_bu svg {
+    height: calc(var(--play-box-height) / 7);
+    width: calc(var(--play-box-height) / 7);
+    margin-left: 5px;
+
+}
+.playbox:hover .play_bu{
+background-color: white;
+box-shadow: var(--box_shad);
+scale: 1.15;
+}
+.playbox:hover .play_bu .svg{
+    fill: white !important;
+}
+
+.playbox .details{
+    position: relative;
+    top: -21%;
+    font-size: 2vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+}
+.playbox .details p {
+    color: black;
+    max-width: 80%;
+    text-align: center;
+    word-wrap: break-word;
+    text-transform: capitalize;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 1000;
+}
+.playbox:hover .details p{
+    color: white;
+}
+.vol_changer{
+  position: fixed;
+  height: 3vh;
+  right: 3VW;
+  z-index: 1000;
+  top: 11vh;
+  width:calc(90vw - 11vh) ;
+  background-color: rgba(129, 129, 129, 0.2);
+  border-radius:  1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vol_changer input{
+    width: 90%;
+    height: 0.2vh;
+    cursor: pointer;
+}
+#load_rounder{
+    position: absolute;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    z-index: -1;
+    border: 0.5vh solid black;
+    border-top: 0.5vh solid rgb(255, 234, 0);
+    animation: load_round 1s linear infinite;
+}
+.p_track{
+/* background : linear-gradient(30deg ,var(--bgColor_I) , rgb(0, 27, 148)); */
+background : rgba(0, 1, 19, 0.377) ;
+position: fixed;
+top: 16vh;
+z-index: 500000;
+width: 200vw;
+height: 4.5vh;
+border-top: 1px solid var(--color_I);
+transition: top 0.5s linear;
+}
+.p_track p {
+font-size: 2.5vh;
+margin: 0;
+color: white;
+margin-top: 0.5vh;
+padding: 0;
+animation: pslid 7s infinite linear;
+}
+@keyframes pslid {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes load_round {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@media (max-width:1200px) {
+        .team_choosed{
+            margin-left: 2px;
+        }
+        .main_content{
+            position: absolute;
+            top: 22vh;
+            left: 10vh;
+            width: calc(100vw - 12vh);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            overflow: hidden;
+            z-index: -1;
+            transition: padding 0.5s linear;
+        }
+        .main_content .playbox{
+            background: var(--play-box-bg);
+            box-shadow: 0px 0px 7px 3px black;
+            border: 1px solid var(--color_I);
+            height: 26vh;
+            width:25vh;
+            border-radius: 30px;
+            margin: 10px 0 10px 0;
+            cursor: pointer;
+            transition: scale 0.2s;
+        }
+    }
+@media (min-width:1196px) {
+    .vol_changer{
+        right: 50vw;
+        width: 40vw;
+    }
+    .instrs{
+        position: fixed;
+        top: 9.5vh;
+        right: 5vh;
+        width: 45vw;
+        height: 6.25vh;
+        background-color: rgba(125, 125, 125, 0.608);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .instrs .instr{
+        border: 1px solid black;
+        text-align: center;
+        font-size: small;
+        font-weight: 700;
+        color: black;
+        cursor: pointer;
+    }
+}
+@media (max-width:1196px) {
+    .instrs{
+        display: none;
+    }
+}
+
+@media (max-width:796px) {
+    .lowest_bar .img_track{
+    position:absolute;
+    top: 40%;
+    left: 2vh;
+    height: 5vh;
+    width: 5vh;
+    border: 2px solid white;
+    border-radius: 10px;
+    }
+}
+@media (min-width : 800px) {
+    .p_track p {
+        animation: pslid 20s infinite linear;
+        }
+}

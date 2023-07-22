@@ -1,0 +1,112 @@
+:root {
+    --color_II : rgb(0, 0, 0) ; 
+    --color_I: white  ; 
+    --bgColor_II : white ;
+    --bgColor_I :  rgb(0, 2, 16) ;
+    --box_shad : 0px 0px 5px 2px rgba(0, 255, 255, 0.768);
+}
+html {
+    background-color: var(--bgColor_I);
+    height: 100vh;
+    padding: 8px;
+    overflow: hidden;
+}
+body{
+    margin: 0;
+}
+* {
+    color: var(--color_I);
+    font-family: sans-serif;
+}
+.butt{
+    color: white;
+    cursor: pointer;
+    height: auto ;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 25px;
+    font-size: large;
+    border: 1px solid rgb(97, 96, 96);
+    font-weight: 600;
+    padding: 10px 70px  10PX 70px;
+    margin: auto;
+}
+.butt:hover{
+    border: 1px solid cyan;
+    box-shadow: var(--box_shad);
+}
+h1{
+    margin-top: 0;
+    padding-right: 20PX;
+    padding-bottom: 15px;
+    border-bottom: 1PX solid var(--color_I);
+    cursor: pointer;
+}
+h2{
+    margin-right: 8vw;
+}
+p{
+    font-size: 3.2vh;
+    margin-bottom: 5vh;
+    text-align: center;
+    padding-right:10vw;
+    padding-left:10vw;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+a{
+    text-decoration: none;
+}
+
+.image_swiper{
+    background-color: rgba(255, 255, 255, 0.381);
+    width: 80%;
+    height: 23rem;
+    border-radius: 5vh;
+    margin-top: 5vh;
+    margin-right:10% ;
+    background-size: cover;
+}
+.image_swiper div {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+}
+.image_swiper div .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_swiper div .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image_swiper .pointer{
+cursor: pointer;
+}
+.image_swiper div .right svg{
+    height: 6vh;
+}
+.image_swiper div .left svg{
+    height: 6vh;
+    transform: rotate(180deg);
+}
+    @media (max-width:700px) {
+        html{
+            overflow: auto;
+        }
+        .grid{
+            display: block;
+            grid-template-columns: 0;
+        }
+        p{
+            padding:0;
+        }
+        .image_swiper div {
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+    }
