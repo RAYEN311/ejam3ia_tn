@@ -13,10 +13,6 @@ app.use(express.static('./public'))
 app.use(express.urlencoded({extended : true}))
 
 // use router in our application (methode / best one)
-// use router in our application (methode / best one)
-
-
-
 
 
 ///////////////////////////////  single part////////////////////////////////////////////
